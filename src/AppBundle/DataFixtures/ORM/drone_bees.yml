@@ -1,4 +1,4 @@
-AppBundle\Entity\Bee:
+AppBundle\Entity\OtherBee:
     drone_bee_1:
         name: 'Drone Bee 1'
         maxLifespan: 50

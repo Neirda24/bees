@@ -1,4 +1,4 @@
-AppBundle\Entity\Bee:
+AppBundle\Entity\OtherBee:
     worker_bee_1:
         name: 'Worker Bee 1'
         maxLifespan: 75

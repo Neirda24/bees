@@ -9,9 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
  * Bee
  *
  * @ORM\Table(name="bee")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\BeeRepository")
+ * @ORM\Entity()
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="bee_type", type="string")
+ * @ORM\DiscriminatorMap({"QueenBee" = "QueenBee", "OtherBee" = "OtherBee"})
  */
-class Bee
+abstract class Bee
 {
     /**
      * @var integer
@@ -49,21 +52,6 @@ class Bee
      * @ORM\Column(name="name", type="string", length=255)
      */
     protected $name;
-
-    /**
-     * @var Bee[]|null
-     *
-     * @ORM\OneToMany(targetEntity="Bee", mappedBy="parent")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    protected $children = null;
-
-    /**
-     * @var Bee|null
-     *
-     * @ORM\ManyToOne(targetEntity="Bee", inversedBy="children")
-     */
-    protected $parent = null;
 
     /**
      * Get id
@@ -175,94 +163,13 @@ class Bee
     }
 
     /**
-     * Get Children
-     *
-     * @return Bee[]|null
-     */
-    public function getChildren()
-    {
-        return $this->children;
-    }
-
-    /**
-     * Set Children
-     *
-     * @param Bee[]|null $children
-     *
-     * @return $this
-     */
-    public function setChildren(array $children = null)
-    {
-        if (is_array($children)) {
-            foreach ($children as $bee) {
-                $this->addChild($bee);
-            }
-        } else {
-            $this->children = null;
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param Bee $bee
-     *
-     * @return $this
-     */
-    public function addChild(Bee $bee)
-    {
-        if(!is_array($this->children)) {
-            $this->children = new ArrayCollection();
-        }
-
-        $this->children->add($bee);
-        $bee->setParent($this);
-
-        return $this;
-    }
-
-    /**
-     * Get Parent
-     *
-     * @return Bee|null
-     */
-    public function getParent()
-    {
-        return $this->parent;
-    }
-
-    /**
-     * Set Parent
-     *
-     * @param Bee|null $parent
-     *
-     * @return $this
-     */
-    public function setParent(Bee $parent = null)
-    {
-        $this->parent = $parent;
-
-        return $this;
-    }
-
-    /**
-     * Return rather or not this bee is the queen bee.
-     *
-     * @return bool
-     */
-    public function isQueen()
-    {
-        return (!($this->parent instanceof Bee));
-    }
-
-    /**
      * Apply damages to the current bee
      *
      * @return $this
      */
     public function hit()
     {
-        $this->remainingLifespan -= $this->hitDamages;
+        $this->remainingLifespan = $this->getRemainingLifespan() - $this->getHitDamages();
 
         return $this;
     }
@@ -274,7 +181,7 @@ class Bee
      */
     public function isDead()
     {
-        return ($this->remainingLifespan <= 0);
+        return ($this->getRemainingLifespan() <= 0);
     }
 }
 

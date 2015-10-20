@@ -1,9 +1,9 @@
-AppBundle\Entity\Bee:
+AppBundle\Entity\QueenBee:
     queen_bee:
         name: 'Queen Bee'
         maxLifespan: 100
         hitDamages: 8
-        children:
+        otherBees:
             - @worker_bee_1
             - @worker_bee_2
             - @worker_bee_3

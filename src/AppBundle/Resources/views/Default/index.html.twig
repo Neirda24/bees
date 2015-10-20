@@ -1,0 +1,19 @@
+<a href="{{ path('new') }}">New game</a>
+<a href="{{ path('hit') }}">Hit</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Remaining life</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for bee in bees_alive %}
+        <tr>
+            <td>{{ bee.name }}</td>
+            <td>{{ bee.remainingLifespan }} / {{ bee.maxLifespan }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
