@@ -1,0 +1,33 @@
+AppBundle\Entity\Bee:
+    drone_bee_1:
+        name: 'Drone Bee 1'
+        maxLifespan: 50
+        hitDamages: 12
+    drone_bee_2:
+        name: 'Drone Bee 2'
+        maxLifespan: 50
+        hitDamages: 12
+    drone_bee_3:
+        name: 'Drone Bee 3'
+        maxLifespan: 50
+        hitDamages: 12
+    drone_bee_4:
+        name: 'Drone Bee 4'
+        maxLifespan: 50
+        hitDamages: 12
+    drone_bee_5:
+        name: 'Drone Bee 5'
+        maxLifespan: 50
+        hitDamages: 12
+    drone_bee_6:
+        name: 'Drone Bee 6'
+        maxLifespan: 50
+        hitDamages: 12
+    drone_bee_7:
+        name: 'Drone Bee 7'
+        maxLifespan: 50
+        hitDamages: 12
+    drone_bee_8:
+        name: 'Drone Bee 8'
+        maxLifespan: 50
+        hitDamages: 12

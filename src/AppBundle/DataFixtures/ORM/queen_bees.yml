@@ -1,0 +1,19 @@
+AppBundle\Entity\Bee:
+    queen_bee:
+        name: 'Queen Bee'
+        maxLifespan: 100
+        hitDamages: 8
+        children:
+            - @worker_bee_1
+            - @worker_bee_2
+            - @worker_bee_3
+            - @worker_bee_4
+            - @worker_bee_5
+            - @drone_bee_1
+            - @drone_bee_2
+            - @drone_bee_3
+            - @drone_bee_4
+            - @drone_bee_5
+            - @drone_bee_6
+            - @drone_bee_7
+            - @drone_bee_8

@@ -1,0 +1,21 @@
+AppBundle\Entity\Bee:
+    worker_bee_1:
+        name: 'Worker Bee 1'
+        maxLifespan: 75
+        hitDamages: 10
+    worker_bee_2:
+        name: 'Worker Bee 1'
+        maxLifespan: 75
+        hitDamages: 10
+    worker_bee_3:
+        name: 'Worker Bee 1'
+        maxLifespan: 75
+        hitDamages: 10
+    worker_bee_4:
+        name: 'Worker Bee 1'
+        maxLifespan: 75
+        hitDamages: 10
+    worker_bee_5:
+        name: 'Worker Bee 1'
+        maxLifespan: 75
+        hitDamages: 10
